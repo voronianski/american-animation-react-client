@@ -33,6 +33,27 @@
   "prettier": {
     "singleQuote": true
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/voronianski/american-animation-react-client.git"
+  },
+  "keywords": [
+    "graphql",
+    "react",
+    "spa",
+    "apollo-client",
+    "redux"
+  ],
+  "engines": {
+    "node": ">=8.0.0",
+    "npm": ">=5.5.0"
+  },
+  "author": "Dmitri Voronianski <dmitri.voronianski@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/voronianski/american-animation-react-client/issues"
+  },
+  "homepage": "https://github.com/voronianski/american-animation-react-client#readme",
   "browserslist": [
     ">0.2%",
     "not dead",
