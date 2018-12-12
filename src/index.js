@@ -9,7 +9,8 @@ import { ApolloProvider } from 'react-apollo';
 import config from './config';
 import App from './components/App';
 
-import './index.css';
+import './_imports.scss';
+import './_index.scss';
 
 const cache = new InMemoryCache();
 
