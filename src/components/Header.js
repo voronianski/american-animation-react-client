@@ -6,7 +6,37 @@ import React from 'react';
 import './_header.scss';
 
 const Header = () => (
-  <header className="header">
+  <header className="header relative clearfix h5">
+    <div className="left">
+      <a href="#!" className="btn btn-small regular py2 m0">
+        50 Greatest
+      </a>
+    </div>
+    <div className="left md-show">
+      <a href="#!" className="btn button-narrow btn-small regular py2 m0">
+        Filter by studio
+      </a>
+      <a href="#!" className="btn button-narrow btn-small regular py2 m0">
+        Characters
+      </a>
+      <a href="#!" className="btn button-narrow btn-small regular py2 m0">
+        Onion Rings
+      </a>
+    </div>
+    <div class="right">
+      <a href="#!" class="btn py2 m0">
+        My Favorites
+      </a>
+    </div>
+    <div class="clearfix sm-hide" />
+    <div class="overflow-hidden px2 py1">
+      <input
+        type="text"
+        class="right fit field white bg-darken-3 h5"
+        placeholder="Search"
+      />
+    </div>
+
     {/* <a
       href="https://graphiql.graphcms.com/simple/v1/swapi"
       className="header-logo right"
