@@ -6,12 +6,14 @@ import {
   Redirect
 } from 'react-router-dom';
 
+import Header from './components/Header';
 import Cartoons from './pages/Cartoons';
 import Cartoon from './pages/Cartoon';
 
 const App = () => (
   <Router>
     <div className="app">
+      <Header />
       <div className="container py4">
         <Switch>
           <Route exact path="/cartoons" component={Cartoons} />

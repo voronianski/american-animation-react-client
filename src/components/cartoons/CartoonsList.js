@@ -6,6 +6,7 @@ import CartoonsListItem from './CartoonsListItem';
 const CartoonsList = ({ cartoons }) => {
   return (
     <div className="cartoons-list clearfix">
+      <div className="cartoons-list-actions" />
       {cartoons.map(cartoon => (
         <CartoonsListItem key={cartoon.id} cartoon={cartoon} />
       ))}
