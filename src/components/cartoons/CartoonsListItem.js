@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
@@ -40,7 +41,10 @@ class CartoonsListItem extends Component {
 
     return (
       <div className={itemClassNames}>
-        <div className="cartoons-list-item-inner">
+        <Link
+          to={`/cartoons/${cartoon.id}`}
+          className="cartoons-list-item-inner block"
+        >
           <div
             className="cartoons-list-item-poster mb1"
             style={{ backgroundImage: `url(${cartoon.omdb.Poster})` }}
@@ -49,7 +53,7 @@ class CartoonsListItem extends Component {
             <div className="cartoons-list-item-name">{cartoon.name}</div>
             <div className="cartoons-list-item-year">{cartoon.releasedIn}</div>
           </div>
-        </div>
+        </Link>
       </div>
     );
   }

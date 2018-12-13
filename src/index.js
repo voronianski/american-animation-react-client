@@ -7,7 +7,7 @@ import { persistCache } from 'apollo-cache-persist';
 import { ApolloProvider } from 'react-apollo';
 
 import config from './config';
-import App from './components/App';
+import App from './App';
 
 import './_imports.scss';
 import './_index.scss';
