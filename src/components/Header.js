@@ -23,16 +23,16 @@ const Header = () => (
         Onion Rings
       </a>
     </div>
-    <div class="right">
-      <a href="#!" class="btn py2 m0">
+    <div className="right">
+      <a href="#!" className="btn py2 m0">
         My Favorites
       </a>
     </div>
-    <div class="clearfix sm-hide" />
-    <div class="overflow-hidden px2 py1">
+    <div className="clearfix sm-hide" />
+    <div className="overflow-hidden px2 py1">
       <input
         type="text"
-        class="right fit field white bg-darken-3 h5"
+        className="right fit field white bg-darken-3 h5"
         placeholder="Search"
       />
     </div>

@@ -1,7 +1,15 @@
 import React from 'react';
 
-const Cartoon = () => (
-  <div className="cartoon-page">Cartoon details here...</div>
-);
+import CartoonDetails from '../components/cartoons/CartoonDetails';
+
+const Cartoon = ({ match }) => {
+  const personId = match.params.id;
+
+  return (
+    <div className="cartoon-page">
+      <CartoonDetails id={personId} />
+    </div>
+  );
+};
 
 export default Cartoon;

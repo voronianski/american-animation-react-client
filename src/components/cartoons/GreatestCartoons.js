@@ -37,7 +37,7 @@ const GreatestCartoons = ({ data: { loading, error, allVideos } }) => {
 };
 
 export default graphql(GreatestCartoonsQuery, {
-  options: props => ({
+  options: () => ({
     variables: {
       videoIds: [...config.fiftyGreatestIds]
     }
