@@ -24,7 +24,7 @@ const App = () => (
         <Switch>
           <Route exact path="/cartoons" component={Cartoons} />
           <Route path="/cartoons/favorites" component={Favorites} />
-          <Route path="/cartoons/fifty-greatest" component={FiftyGreatest} />
+          <Route path="/cartoons/50-greatest" component={FiftyGreatest} />
           <Route path="/cartoons/:id" component={Cartoon} />
           <Route exact path="/studios" component={Studios} />
           <Route path="/studios/:id" component={Studio} />

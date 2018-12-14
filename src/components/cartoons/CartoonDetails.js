@@ -50,6 +50,10 @@ const CartoonDetails = props => {
     return <div>Error!</div>;
   }
 
+  if (!Video) {
+    return <div>Empty</div>;
+  }
+
   console.log(Video);
 
   return (
