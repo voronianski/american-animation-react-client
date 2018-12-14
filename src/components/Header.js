@@ -7,7 +7,7 @@ import './_header.scss';
 
 const Header = () => (
   <header className="header relative clearfix h5">
-    <div className="left">
+    {/* <div className="left">
       <a href="#!" className="btn btn-small regular py2 m0">
         50 Greatest
       </a>
@@ -37,7 +37,7 @@ const Header = () => (
       />
     </div>
 
-    {/* <a
+    <a
       href="https://graphiql.graphcms.com/simple/v1/swapi"
       className="header-logo right"
       target="_blank"

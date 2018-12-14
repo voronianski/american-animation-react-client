@@ -3,11 +3,11 @@ import React from 'react';
 import CartoonDetails from '../components/cartoons/CartoonDetails';
 
 const Cartoon = ({ match }) => {
-  const personId = match.params.id;
+  const videoId = match.params.id;
 
   return (
-    <div className="cartoon-page">
-      <CartoonDetails id={personId} />
+    <div className="cartoon-page container-inner-narrow mx-auto">
+      <CartoonDetails id={videoId} />
     </div>
   );
 };

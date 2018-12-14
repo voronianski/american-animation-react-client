@@ -1,6 +1,7 @@
 import React from 'react';
 import { graphql } from 'react-apollo';
 import gql from 'graphql-tag';
+import nprogress from 'nprogress';
 
 import config from '../../config';
 import CartoonsList from './CartoonsList';
@@ -18,8 +19,11 @@ export const GreatestCartoonsQuery = gql`
 
 const GreatestCartoons = ({ data: { loading, error, allVideos } }) => {
   if (loading) {
-    return <div>Loading...</div>;
+    nprogress.start();
+    return null;
   }
+
+  nprogress.done();
 
   if (error) {
     return <div>Error!</div>;

@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import { graphql } from 'react-apollo';
-import gql from 'graphql-tag';
+import { Link } from 'react-router-dom';
 import ReactPlayer from 'react-player';
+import gql from 'graphql-tag';
+import nprogress from 'nprogress';
 
 import './_cartoon-details.scss';
 
@@ -53,19 +55,14 @@ class Videos extends Component {
         <ReactPlayer
           url={urls[0]}
           config={{
-            vimeo: {
-              playerOptions: {
-                // color: 'D26AC2'
-              }
-            },
             dailymotion: {
-              params: {
-                // 'ui-highlight': 'D26AC2',
-                'ui-start-screen-info': false
-              }
+              params: { 'ui-start-screen-info': false }
             }
           }}
           onReady={() => this.setState({ ready: true })}
+          className="video-player"
+          width="100%"
+          height="100%"
           controls
           pip
         />
@@ -76,8 +73,11 @@ class Videos extends Component {
 
 const CartoonDetails = ({ data: { loading, error, Video } }) => {
   if (loading) {
-    return <div>Loading...</div>;
+    nprogress.start();
+    return null;
   }
+
+  nprogress.done();
 
   if (error) {
     return <div>Error!</div>;
@@ -87,23 +87,84 @@ const CartoonDetails = ({ data: { loading, error, Video } }) => {
 
   return (
     <div className="cartoon-details">
-      <h2>{Video.name}</h2>
+      <h2 className="cartoon-details-title h1 mt0 mb2">
+        <span className="cartoon-details-name">{Video.name} </span>
+        <span className="cartoon-details-year regular h3">
+          ({Video.releasedIn})
+        </span>
+      </h2>
 
-      <div>Released in: {Video.releasedIn}</div>
-      <div>Directed by: {Video.directedBy}</div>
-      <div>Studio: {Video.studio.name}</div>
+      <div className="cartoon-details-inner md-flex">
+        <div className="flex-none mr3 mb2">
+          {Video.omdb.Poster ? (
+            <div className="cartoon-details-poster">
+              <img src={Video.omdb.Poster} width="250" alt="cartoon poster" />
+            </div>
+          ) : null}
 
-      {Video.omdb.Poster ? (
-        <div className="cartoon-details-poster">
-          <img src={Video.omdb.Poster} width="200" alt="cartoon poster" />
+          <button
+            className="cartoon-details-favorites-btn btn btn-primary block col-12 mt2 h5 caps regular"
+            onClick={() => console.log('redux')}
+          >
+            + Add to Favorites
+          </button>
         </div>
-      ) : null}
 
-      {Video.omdb.Plot ? (
-        <div className="cartoon-details-plot">{Video.omdb.Plot}</div>
-      ) : null}
+        <div className="flex-auto">
+          <div className="cartoon-details-info h5">
+            <div>
+              <span className="caps h6">Studio: </span>
+              <Link to={`/studios/${Video.studio.id}`}>
+                {Video.studio.name}
+              </Link>
+            </div>
 
-      <Videos urls={Video.links} />
+            <div>
+              <span className="caps h6">Director: </span>
+              <span>{Video.directedBy}</span>
+            </div>
+
+            {Video.omdb.Runtime ? (
+              <div>
+                <span className="caps h6">Runtime: </span>
+                <span>{Video.omdb.Runtime}</span>
+              </div>
+            ) : null}
+
+            {Video.omdb.Released ? (
+              <div>
+                <span className="caps h6">Released: </span>
+                <span>{Video.omdb.Released}</span>
+              </div>
+            ) : null}
+
+            {Video.characters.length ? (
+              <div className="cartoon-details-characters">
+                <span className="caps h6">Features: </span>
+                {Video.characters.map(character => (
+                  <Link
+                    key={character.id}
+                    className="cartoon-details-characters-link mr1"
+                    to={`/characters/${character.id}`}
+                  >
+                    {character.name}
+                  </Link>
+                ))}
+              </div>
+            ) : null}
+
+            {Video.omdb.Plot ? (
+              <div className="cartoon-details-plot h4 mt2 gray">
+                {Video.omdb.Plot}
+              </div>
+            ) : null}
+
+            <div className="mt3">
+              <Videos urls={Video.links} />
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   );
 };

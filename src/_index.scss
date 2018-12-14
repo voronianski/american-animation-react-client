@@ -22,4 +22,19 @@ a {
 .container {
   max-width: 1240px !important;
   width: 100%;
+  &-inner-narrow {
+    max-width: 960px;
+    width: 95%;
+  }
+}
+
+#nprogress {
+  .bar {
+    background: #00d630;
+  }
+
+  .peg,
+  .spinner {
+    display: none;
+  }
 }
