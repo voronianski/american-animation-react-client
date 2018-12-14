@@ -17,6 +17,17 @@ const config = {
     'aWPiHWFm5G', // 22
     'EH26BGFx7', // 23
     'hub4tFxaW-' // 31
+  ],
+
+  // list of shorts featuring Red
+  texAveryRedIds: [
+    'KV6Qq8B3cX',
+    'S3Zwct0aH',
+    'EH26BGFx7',
+    'zxGrQjdmwJ',
+    'gE6q1AUIO',
+    'NXp0EaraK',
+    'cwEcHEt6O_'
   ]
 };
 

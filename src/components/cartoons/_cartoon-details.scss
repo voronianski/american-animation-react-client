@@ -5,6 +5,12 @@
   &-year {
     color: #525252;
   }
+  &-sidebar {
+    max-width: 250px;
+  }
+  &-poster img {
+    width: 100%;
+  }
   &-info {
     a {
       border-bottom: 1px dashed;
@@ -15,8 +21,10 @@
     }
   }
   &-favorites-btn {
-    // background-color: #00d630 !important;
-    max-width: 250px;
     padding: 0.7rem 1rem !important;
+  }
+  &-share-btn {
+    cursor: pointer;
+    outline: none;
   }
 }
