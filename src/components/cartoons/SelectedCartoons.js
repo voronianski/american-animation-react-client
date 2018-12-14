@@ -1,13 +1,13 @@
 import React from 'react';
 import { graphql } from 'react-apollo';
+import PropTypes from 'prop-types';
 import gql from 'graphql-tag';
 import nprogress from 'nprogress';
 
-import config from '../../config';
 import CartoonsList from './CartoonsList';
 
-export const GreatestCartoonsQuery = gql`
-  query GreatestCartoonsQuery($videoIds: [ID!]) {
+export const SelectedCartoonsQuery = gql`
+  query SelectedCartoonsQuery($videoIds: [ID!]) {
     allVideos(selectIds: $videoIds) {
       id
       name
@@ -17,7 +17,7 @@ export const GreatestCartoonsQuery = gql`
   }
 `;
 
-const GreatestCartoons = ({ data: { loading, error, allVideos } }) => {
+const SelectedCartoons = ({ data: { loading, error, allVideos } }) => {
   if (loading) {
     nprogress.start();
     return null;
@@ -34,16 +34,20 @@ const GreatestCartoons = ({ data: { loading, error, allVideos } }) => {
   }
 
   return (
-    <div className="greatest-cartoons">
+    <div className="selected-cartoons">
       <CartoonsList cartoons={allVideos} />
     </div>
   );
 };
 
-export default graphql(GreatestCartoonsQuery, {
-  options: () => ({
+SelectedCartoons.propTypes = {
+  ids: PropTypes.array.isRequired
+};
+
+export default graphql(SelectedCartoonsQuery, {
+  options: props => ({
     variables: {
-      videoIds: [...config.fiftyGreatestIds]
+      videoIds: props.ids
     }
   })
-})(GreatestCartoons);
+})(SelectedCartoons);

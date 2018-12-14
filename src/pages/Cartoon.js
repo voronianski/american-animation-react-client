@@ -1,15 +1,39 @@
 import React from 'react';
+import { connect } from 'react-redux';
 
 import CartoonDetails from '../components/cartoons/CartoonDetails';
+import { addFavoritedCartoon, removeFavoritedCartoon } from '../store/actions';
 
-const Cartoon = ({ match }) => {
-  const videoId = match.params.id;
+const Cartoon = props => {
+  const {
+    match,
+    isFavorited,
+    addFavoritedCartoon,
+    removeFavoritedCartoon
+  } = props;
 
   return (
     <div className="cartoon-page container-inner-narrow mx-auto">
-      <CartoonDetails id={videoId} />
+      <CartoonDetails
+        id={match.params.id}
+        isFavorited={isFavorited}
+        onToggleFavorite={videoId => {
+          if (isFavorited) {
+            removeFavoritedCartoon(videoId);
+          } else {
+            addFavoritedCartoon(videoId);
+          }
+        }}
+      />
     </div>
   );
 };
 
-export default Cartoon;
+const mapStateToProps = ({ favoritedCartoons }, { match }) => ({
+  isFavorited: favoritedCartoons.includes(match.params.id)
+});
+
+export default connect(
+  mapStateToProps,
+  { addFavoritedCartoon, removeFavoritedCartoon }
+)(Cartoon);

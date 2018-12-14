@@ -9,6 +9,8 @@ import {
 import Header from './components/Header';
 import Cartoons from './pages/Cartoons';
 import Cartoon from './pages/Cartoon';
+import Favorites from './pages/Favorites';
+import FiftyGreatest from './pages/FiftyGreatest';
 import Studios from './pages/Studios';
 import Studio from './pages/Studio';
 import Characters from './pages/Characters';
@@ -21,6 +23,8 @@ const App = () => (
       <div className="container py3 mb4">
         <Switch>
           <Route exact path="/cartoons" component={Cartoons} />
+          <Route path="/cartoons/favorites" component={Favorites} />
+          <Route path="/cartoons/fifty-greatest" component={FiftyGreatest} />
           <Route path="/cartoons/:id" component={Cartoon} />
           <Route exact path="/studios" component={Studios} />
           <Route path="/studios/:id" component={Studio} />

@@ -1,0 +1,10 @@
+.cartoon-video {
+  position: relative;
+  padding-top: 56.25%; // ratio: 720 / 1280 = 0.5625
+  transition: opacity 0.3s ease;
+  .video-player {
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+}

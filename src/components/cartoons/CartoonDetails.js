@@ -1,9 +1,12 @@
-import React, { Component } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import { graphql } from 'react-apollo';
 import { Link } from 'react-router-dom';
-import ReactPlayer from 'react-player';
 import gql from 'graphql-tag';
 import nprogress from 'nprogress';
+
+import CartoonVideo from './CartoonVideo';
+import CartoonFavoriteButton from './CartoonFavoriteButton';
 
 import './_cartoon-details.scss';
 
@@ -29,49 +32,13 @@ export const CartoonDetailsQuery = gql`
   }
 `;
 
-class Videos extends Component {
-  constructor() {
-    super();
+const CartoonDetails = props => {
+  const {
+    data: { loading, error, Video },
+    isFavorited,
+    onToggleFavorite
+  } = props;
 
-    this.state = {
-      ready: false
-    };
-  }
-
-  render() {
-    const { urls } = this.props;
-
-    if (!urls.length) {
-      return;
-    }
-
-    return (
-      <div
-        className="cartoon-details-videos"
-        style={{
-          opacity: this.state.ready ? 1 : 0
-        }}
-      >
-        <ReactPlayer
-          url={urls[0]}
-          config={{
-            dailymotion: {
-              params: { 'ui-start-screen-info': false }
-            }
-          }}
-          onReady={() => this.setState({ ready: true })}
-          className="video-player"
-          width="100%"
-          height="100%"
-          controls
-          pip
-        />
-      </div>
-    );
-  }
-}
-
-const CartoonDetails = ({ data: { loading, error, Video } }) => {
   if (loading) {
     nprogress.start();
     return null;
@@ -102,12 +69,13 @@ const CartoonDetails = ({ data: { loading, error, Video } }) => {
             </div>
           ) : null}
 
-          <button
-            className="cartoon-details-favorites-btn btn btn-primary block col-12 mt2 h5 caps regular"
-            onClick={() => console.log('redux')}
-          >
-            + Add to Favorites
-          </button>
+          {onToggleFavorite ? (
+            <CartoonFavoriteButton
+              videoId={Video.id}
+              isFavorited={isFavorited}
+              onToggleFavorite={onToggleFavorite}
+            />
+          ) : null}
         </div>
 
         <div className="flex-auto">
@@ -160,13 +128,19 @@ const CartoonDetails = ({ data: { loading, error, Video } }) => {
             ) : null}
 
             <div className="mt3">
-              <Videos urls={Video.links} />
+              <CartoonVideo urls={Video.links} />
             </div>
           </div>
         </div>
       </div>
     </div>
   );
+};
+
+CartoonDetails.propTypes = {
+  id: PropTypes.string.isRequired,
+  isFavorited: PropTypes.bool,
+  onToggleFavorite: PropTypes.func
 };
 
 export default graphql(CartoonDetailsQuery, {
