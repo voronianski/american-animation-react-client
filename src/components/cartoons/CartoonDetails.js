@@ -18,6 +18,7 @@ export const CartoonDetailsQuery = gql`
       name
       directedBy
       releasedIn
+      poster
       studio {
         id
         name
@@ -75,7 +76,10 @@ const CartoonDetails = props => {
           <div className="cartoon-details-sidebar">
             {Video.omdb.Poster ? (
               <div className="cartoon-details-poster">
-                <img src={Video.omdb.Poster} alt="cartoon poster" />
+                <img
+                  src={Video.poster || Video.omdb.Poster}
+                  alt="cartoon poster"
+                />
               </div>
             ) : null}
 

@@ -11,6 +11,7 @@ export const SelectedCartoonsQuery = gql`
     allVideos(selectIds: $videoIds) {
       id
       name
+      poster
       releasedIn
       omdb
     }

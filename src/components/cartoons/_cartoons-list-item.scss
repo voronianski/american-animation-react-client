@@ -20,6 +20,10 @@
       &:hover {
         text-decoration: none;
       }
+      &:focus {
+        outline: none;
+        opacity: 0.3;
+      }
     }
     &-poster {
       width: 100%;

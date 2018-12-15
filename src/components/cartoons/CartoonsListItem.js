@@ -18,6 +18,12 @@ class CartoonsListItem extends Component {
     this.loadPoster();
   }
 
+  getPosterLink() {
+    const { cartoon } = this.props;
+
+    return cartoon.poster || cartoon.omdb.Poster;
+  }
+
   loadPoster(posterLink) {
     const img = new Image();
     const done = () =>
@@ -27,7 +33,7 @@ class CartoonsListItem extends Component {
 
     img.onload = () => done();
     img.onerror = () => done();
-    img.src = this.props.cartoon.omdb.Poster;
+    img.src = this.getPosterLink();
   }
 
   render() {
@@ -47,7 +53,7 @@ class CartoonsListItem extends Component {
         >
           <div
             className="cartoons-list-item-poster mb1"
-            style={{ backgroundImage: `url(${cartoon.omdb.Poster})` }}
+            style={{ backgroundImage: `url(${this.getPosterLink()})` }}
           />
           <div className="cartoons-list-item-details">
             <div className="cartoons-list-item-name">{cartoon.name}</div>
