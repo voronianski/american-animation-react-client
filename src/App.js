@@ -16,6 +16,7 @@ import Studios from './pages/Studios';
 import Studio from './pages/Studio';
 import Characters from './pages/Characters';
 import Character from './pages/Character';
+import About from './pages/About';
 
 const App = () => (
   <Router>
@@ -32,6 +33,7 @@ const App = () => (
           <Route path="/studios/:id" component={Studio} />
           <Route exact path="/characters" component={Characters} />
           <Route path="/characters/:id" component={Character} />
+          <Route path="/about" component={About} />
           <Route render={() => <Redirect to="/cartoons" />} />
         </Switch>
       </div>
