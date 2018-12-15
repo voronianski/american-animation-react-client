@@ -4,7 +4,7 @@ import config from '../config';
 import TitleBar from '../components/TitleBar';
 import SelectedCartoons from '../components/cartoons/SelectedCartoons';
 
-const pageDescription = `List of animated shorts from the Golden Age period that were mentioned in the book "The 50 Greatest Cartoons: As Selected by 1,000 Animation Professionals" by Jerry Beck (1994).`;
+const pageDescription = `List of animated shorts from the Golden Age period that were mentioned in the 1994 book "The 50 Greatest Cartoons: As Selected by 1,000 Animation Professionals" by Jerry Beck.`;
 
 const FiftyGreatest = () => (
   <div className="fifty-greatest-page">

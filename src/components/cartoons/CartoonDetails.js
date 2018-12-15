@@ -4,15 +4,8 @@ import { graphql } from 'react-apollo';
 import { Link } from 'react-router-dom';
 import gql from 'graphql-tag';
 import nprogress from 'nprogress';
-import {
-  FacebookShareButton,
-  TwitterShareButton,
-  EmailShareButton,
-  FacebookIcon,
-  TwitterIcon,
-  EmailIcon
-} from 'react-share';
 
+import ShareButtons from '../ShareButtons';
 import CartoonVideo from './CartoonVideo';
 import CartoonFavoriteButton from './CartoonFavoriteButton';
 
@@ -62,7 +55,6 @@ const CartoonDetails = props => {
     return <div>Empty</div>;
   }
 
-  const shareUrl = window.location.href;
   const shareText = `Watch animated cartoon "${Video.name}" (${
     Video.releasedIn
   }) by ${Video.directedBy} here - `;
@@ -96,34 +88,7 @@ const CartoonDetails = props => {
             ) : null}
 
             <div className="cartoon-details-share center mt2">
-              <span className="cartoon-details-share-facebook inline-block mr1">
-                <FacebookShareButton
-                  url={shareUrl}
-                  quote={shareText}
-                  className="cartoon-details-share-btn"
-                >
-                  <FacebookIcon size={32} round />
-                </FacebookShareButton>
-              </span>
-              <span className="cartoon-details-share-twitter inline-block mr1">
-                <TwitterShareButton
-                  url={shareUrl}
-                  title={shareText}
-                  className="cartoon-details-share-btn"
-                >
-                  <TwitterIcon size={32} round />
-                </TwitterShareButton>
-              </span>
-              <span className="cartoon-details-share-twitter inline-block">
-                <EmailShareButton
-                  url={shareUrl}
-                  subject={shareText}
-                  body={shareUrl}
-                  className="cartoon-details-share-btn"
-                >
-                  <EmailIcon size={32} round />
-                </EmailShareButton>
-              </span>
+              <ShareButtons url={window.location.href} text={shareText} />
             </div>
           </div>
         </div>

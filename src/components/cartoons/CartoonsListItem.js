@@ -20,13 +20,13 @@ class CartoonsListItem extends Component {
 
   loadPoster(posterLink) {
     const img = new Image();
-
-    img.onload = () => {
+    const done = () =>
       setTimeout(() => {
         this.setState({ posterLoaded: true });
       }, 0);
-    };
 
+    img.onload = () => done();
+    img.onerror = () => done();
     img.src = this.props.cartoon.omdb.Poster;
   }
 

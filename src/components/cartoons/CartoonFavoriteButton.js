@@ -2,11 +2,12 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
+import './_cartoon-favorite-button.scss';
+
 const CartoonFavoriteButton = ({ videoId, isFavorited, onToggleFavorite }) => {
-  const btnClassNames = classNames(
-    'cartoon-details-favorites-btn btn col-12 mt2 h4',
-    [isFavorited ? 'btn-outline green' : 'btn-primary bg-green']
-  );
+  const btnClassNames = classNames('cartoon-favorite-btn btn col-12 mt2 h4', [
+    isFavorited ? 'btn-outline green' : 'btn-primary bg-green'
+  ]);
 
   return (
     <button

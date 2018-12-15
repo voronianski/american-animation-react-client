@@ -1,10 +1,12 @@
 import React from 'react';
 
-const Character = ({ match }) => {
-  const characterId = match.params.id;
+import CharacterDetails from '../components/characters/CharacterDetails';
 
+const Character = ({ match }) => {
   return (
-    <div className="character-page">Character details {characterId}...</div>
+    <div className="character-page">
+      <CharacterDetails id={match.params.id} />
+    </div>
   );
 };
 
