@@ -8,8 +8,6 @@ import nprogress from 'nprogress';
 import ShareButtons from '../ShareButtons';
 import CartoonsList from '../cartoons/CartoonsList';
 
-import './_character-details.scss';
-
 export const CharacterDetailsQuery = gql`
   query CharacterDetailsQuery($characterId: ID!) {
     Character(id: $characterId) {
@@ -58,21 +56,23 @@ const CharacterDetails = props => {
 
   return (
     <div className="character-details">
-      <div className="character-details-info px2 mb3">
+      <div className="character-details-info md-col-6 px2 mb3">
         <h2 className="character-details-title h1 mt0 mb1">
-          <span className="character-details-name">{Character.name} </span>
-          <span className="character-details-year regular h3">
+          <span className="character-details-name top-name">
+            {Character.name}{' '}
+          </span>
+          <span className="character-details-year top-year regular h3">
             ({Character.createdIn})
           </span>
         </h2>
 
         {Character.studios.length ? (
-          <div className="character-details-studios">
+          <div className="character-details-studios dashed-links">
             <span className="caps h6">Studios: </span>
             {Character.studios.map(studio => (
               <Link
                 key={studio.id}
-                className="cartoon-details-studios-link mr1"
+                className="character-details-studios-link mr1"
                 to={`/studios/${studio.id}`}
               >
                 {studio.name}

@@ -1,23 +1,8 @@
 .cartoon-details {
-  &-title {
-    line-height: 1.2;
-  }
-  &-year {
-    color: #525252;
-  }
   &-sidebar {
     max-width: 250px;
   }
   &-poster img {
     width: 100%;
-  }
-  &-info {
-    a {
-      border-bottom: 1px dashed;
-      &:hover {
-        border-bottom: 0;
-        text-decoration: none;
-      }
-    }
   }
 }

@@ -64,8 +64,8 @@ const CartoonDetails = props => {
   return (
     <div className="cartoon-details">
       <h2 className="cartoon-details-title h1 mt0 mb2">
-        <span className="cartoon-details-name">{Video.name} </span>
-        <span className="cartoon-details-year regular h3">
+        <span className="cartoon-details-name top-name">{Video.name} </span>
+        <span className="cartoon-details-year top-year regular h3">
           ({Video.releasedIn})
         </span>
       </h2>
@@ -94,7 +94,7 @@ const CartoonDetails = props => {
         </div>
 
         <div className="flex-auto">
-          <div className="cartoon-details-info h5">
+          <div className="cartoon-details-info h5 dashed-links">
             <div>
               <span className="caps h6">Studio: </span>
               <Link to={`/studios/${Video.studio.id}`}>

@@ -28,14 +28,20 @@ a {
   }
 }
 
-.fade-enter {
-  opacity: 0;
-  z-index: 1;
+.top-name {
+  line-height: 1.2;
 }
-
-.fade-enter.fade-enter-active {
-  opacity: 1;
-  transition: opacity 0.25s ease-in;
+.top-year {
+  color: #525252;
+}
+.dashed-links {
+  a {
+    border-bottom: 1px dashed;
+    &:hover {
+      border-bottom: 0;
+      text-decoration: none;
+    }
+  }
 }
 
 #nprogress {

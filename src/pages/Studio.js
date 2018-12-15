@@ -1,9 +1,13 @@
 import React from 'react';
 
-const Studio = ({ match }) => {
-  const studioId = match.params.id;
+import StudioDetails from '../components/studios/StudioDetails';
 
-  return <div className="studio-page">Studio details {studioId}...</div>;
+const Studio = ({ match }) => {
+  return (
+    <div className="studio-page">
+      <StudioDetails id={match.params.id} />
+    </div>
+  );
 };
 
 export default Studio;
