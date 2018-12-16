@@ -23,7 +23,7 @@ export const StudioDetailsQuery = gql`
       videos(orderBy: releasedIn_ASC) {
         id
         name
-        poster
+        image
         releasedIn
         omdb
       }

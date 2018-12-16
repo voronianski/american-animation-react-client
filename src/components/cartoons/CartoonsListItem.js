@@ -21,7 +21,7 @@ class CartoonsListItem extends Component {
   getPosterLink() {
     const { cartoon } = this.props;
 
-    return cartoon.poster || cartoon.omdb.Poster;
+    return cartoon.image || cartoon.omdb.Poster;
   }
 
   loadPoster(posterLink) {

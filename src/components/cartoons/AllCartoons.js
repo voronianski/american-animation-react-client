@@ -10,7 +10,7 @@ export const AllCartoonsQuery = gql`
     allVideos(name: $name, orderBy: $orderBy) {
       id
       name
-      poster
+      image
       releasedIn
       omdb
     }
