@@ -1,49 +1,47 @@
-.cartoons-list {
-  &-item {
-    opacity: 0;
+.cartoons-list-item {
+  opacity: 0;
+  overflow: hidden;
+  transform: scale(0, 0);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  &.poster-loaded {
+    opacity: 1;
+    transform: scale(1, 1);
+    &:hover {
+      opacity: 0.3;
+      transform: scale(0.92, 0.92);
+      transition-delay: 0.3s;
+    }
+  }
+  &-inner {
+    width: 100%;
+    height: 300px;
+    cursor: pointer;
+    &:hover {
+      text-decoration: none;
+    }
+    &:focus {
+      outline: none;
+      opacity: 0.3;
+    }
+  }
+  &-poster {
+    width: 100%;
+    height: 240px;
+    margin: 0 auto;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-radius: 3px;
+  }
+  &-name {
+    color: #fff;
+    font-size: 13px;
+    line-height: 1.2;
+    max-height: 30px;
     overflow: hidden;
-    transform: scale(0, 0);
-    transition: opacity 0.3s ease, transform 0.3s ease;
-    &.poster-loaded {
-      opacity: 1;
-      transform: scale(1, 1);
-      &:hover {
-        opacity: 0.3;
-        transform: scale(0.92, 0.92);
-        transition-delay: 0.3s;
-      }
-    }
-    &-inner {
-      width: 100%;
-      height: 300px;
-      cursor: pointer;
-      &:hover {
-        text-decoration: none;
-      }
-      &:focus {
-        outline: none;
-        opacity: 0.3;
-      }
-    }
-    &-poster {
-      width: 100%;
-      height: 240px;
-      margin: 0 auto;
-      background-size: cover;
-      background-position: center;
-      background-repeat: no-repeat;
-      border-radius: 3px;
-    }
-    &-name {
-      color: #fff;
-      font-size: 13px;
-      line-height: 1.2;
-      max-height: 30px;
-      overflow: hidden;
-    }
-    &-year {
-      color: #525252;
-      font-size: 12px;
-    }
+  }
+  &-year {
+    color: #525252;
+    font-size: 12px;
   }
 }

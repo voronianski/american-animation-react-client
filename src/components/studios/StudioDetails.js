@@ -59,7 +59,7 @@ const StudioDetails = props => {
 
   return (
     <div className="studio-details">
-      <div className="studio-details-info md-col-6 px2 mb3">
+      <div className="studio-details-info px2 mb3">
         <h2 className="studio-details-title h1 mt0 mb1">
           <span className="studio-details-name top-name">{Studio.name} </span>
           <span className="studio-details-year top-year regular h3">
@@ -68,7 +68,7 @@ const StudioDetails = props => {
         </h2>
 
         {Studio.characters.length ? (
-          <div className="studio-details-characters dashed-links">
+          <div className="studio-details-characters dashed-links md-col-8">
             <span className="caps h6">Characters: </span>
             {Studio.characters.map(character => (
               <Link

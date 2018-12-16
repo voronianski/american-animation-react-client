@@ -12,6 +12,8 @@ const Cartoon = props => {
     removeFavoritedCartoon
   } = props;
 
+  window.scrollTo(0, 0);
+
   return (
     <div className="cartoon-page container-inner-narrow mx-auto">
       <CartoonDetails
