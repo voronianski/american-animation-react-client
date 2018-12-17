@@ -43,7 +43,7 @@ const AllCartoons = ({ data: { loading, error, allVideos } }) => {
 export default graphql(AllCartoonsQuery, {
   options: props => ({
     variables: {
-      orderBy: 'releasedIn_ASC'
+      orderBy: 'name_ASC'
     }
   })
 })(AllCartoons);

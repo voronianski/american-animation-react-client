@@ -45,7 +45,7 @@ const AllCharacters = ({ data: { loading, error, allCharacters } }) => {
 export default graphql(AllCharactersQuery, {
   options: props => ({
     variables: {
-      orderBy: 'createdIn_ASC'
+      orderBy: 'name_ASC'
     }
   })
 })(AllCharacters);
