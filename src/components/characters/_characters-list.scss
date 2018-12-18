@@ -10,23 +10,39 @@
     }
     &-inner {
       background-color: #222325;
-      background-position: center;
-      background-repeat: no-repeat;
-      background-size: cover;
       width: 100%;
       height: 200px;
       position: relative;
       cursor: pointer;
+      overflow: hidden;
       &:hover {
         text-decoration: none;
       }
       &:focus {
         outline: none;
-        opacity: 0.3;
+        opacity: 0.5;
       }
     }
     &-overlay {
-      background-color: rgba(0, 0, 0, 0.8);
+      background-image: linear-gradient(
+        180deg,
+        rgba(0, 0, 0, 0.8) 25%,
+        rgba(0, 0, 0, 0.2),
+        rgba(0, 0, 0, 0.8)
+      );
+    }
+    &-mosaic {
+      &-image {
+        width: 50%;
+        height: 50%;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: 130%;
+        &.single {
+          width: 100%;
+          height: 100%;
+        }
+      }
     }
     &-details {
       height: 100%;

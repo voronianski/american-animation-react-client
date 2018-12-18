@@ -14,6 +14,7 @@ export const AllCharactersQuery = gql`
       createdIn
       videos {
         id
+        image
       }
     }
   }
