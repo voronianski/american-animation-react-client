@@ -1,11 +1,14 @@
+$itemRadius: 20px;
+
 .characters-list {
   &-item {
     overflow: hidden;
+    border-radius: $itemRadius;
     transform: scale(1, 1);
     transition: opacity 0.3s ease, transform 0.3s ease;
     &:hover {
       opacity: 0.8;
-      transform: scale(0.92, 0.92);
+      transform: scale(0.9, 0.9);
       transition-delay: 0.3s;
     }
     &-inner {
@@ -15,6 +18,7 @@
       position: relative;
       cursor: pointer;
       overflow: hidden;
+      border-radius: $itemRadius;
       &:hover {
         text-decoration: none;
       }
@@ -24,14 +28,19 @@
       }
     }
     &-overlay {
+      width: 100%;
+      transform: scale(1, 1);
       background-image: linear-gradient(
         180deg,
-        rgba(0, 0, 0, 0.8) 25%,
-        rgba(0, 0, 0, 0.2),
-        rgba(0, 0, 0, 0.8)
+        rgba(0, 0, 0, 0.9) 20%,
+        rgba(0, 0, 0, 0.2) 60%,
+        rgba(0, 0, 0, 0.9) 100%
       );
     }
     &-mosaic {
+      border: 6px solid #000;
+      border-radius: 20px;
+      overflow: hidden;
       &-image {
         width: 50%;
         height: 50%;
