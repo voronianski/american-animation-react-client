@@ -23,7 +23,7 @@ function renderImageMosaic(videos) {
       <div
         key={video.id}
         className={imageClassNames}
-        style={{ backgroundImage: `url(${video.image})` }}
+        style={{ backgroundImage: `url(${video.image || video.omdb.Poster})` }}
       />
     );
   };
