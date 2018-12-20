@@ -5,13 +5,13 @@ import nprogress from 'nprogress';
 
 import MinimalList from '../MinimalList';
 
-export const AllCharactersQuery = gql`
-  query AllCharactersQuery($name: String, $orderBy: CharacterOrderBy) {
-    allCharacters(name: $name, orderBy: $orderBy) {
+export const AllStudiosQuery = gql`
+  query AllStudiosQuery($name: String, $orderBy: StudioOrderBy) {
+    allStudios(name: $name, orderBy: $orderBy) {
       id
       name
-      images
-      createdIn
+      foundedIn
+      defunctIn
       videos {
         id
         image
@@ -21,7 +21,7 @@ export const AllCharactersQuery = gql`
   }
 `;
 
-const AllCharacters = ({ data: { loading, error, allCharacters } }) => {
+const AllStudios = ({ data: { loading, error, allStudios } }) => {
   if (loading) {
     nprogress.start();
     return null;
@@ -33,25 +33,25 @@ const AllCharacters = ({ data: { loading, error, allCharacters } }) => {
     return <div>Error!</div>;
   }
 
-  if (!allCharacters || !allCharacters.length) {
+  if (!allStudios || !allStudios.length) {
     return <div>Empty</div>;
   }
 
   return (
-    <div className="all-characters">
+    <div className="all-studios">
       <MinimalList
-        data={allCharacters}
-        source="characters"
-        renderYears={character => character.createdIn}
+        data={allStudios}
+        source="studios"
+        renderYears={studio => studio.foundedIn}
       />
     </div>
   );
 };
 
-export default graphql(AllCharactersQuery, {
+export default graphql(AllStudiosQuery, {
   options: props => ({
     variables: {
       orderBy: 'name_ASC'
     }
   })
-})(AllCharacters);
+})(AllStudios);

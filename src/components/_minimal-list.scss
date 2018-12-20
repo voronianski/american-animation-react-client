@@ -1,6 +1,6 @@
 $itemRadius: 20px;
 
-.characters-list {
+.minimal-list {
   &-item {
     overflow: hidden;
     border-radius: $itemRadius;
@@ -37,29 +37,13 @@ $itemRadius: 20px;
         rgba(0, 0, 0, 0.9) 100%
       );
     }
-    &-mosaic {
-      border: 6px solid #000;
-      border-radius: 20px;
-      overflow: hidden;
-      &-image {
-        width: 50%;
-        height: 50%;
-        background-position: center;
-        background-repeat: no-repeat;
-        background-size: 130%;
-        &.single {
-          width: 100%;
-          height: 100%;
-        }
-      }
-    }
     &-details {
       height: 100%;
     }
     &-year {
       color: #525252;
     }
-    &-videos {
+    &-video-counter {
       position: absolute;
       bottom: 0;
       left: 0;
