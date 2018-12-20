@@ -1,8 +1,7 @@
 .mosaic-image-container {
   width: 100%;
   height: 100%;
-  border: 6px solid #000;
-  border-radius: 20px;
+  border: 6px solid transparent;
   overflow: hidden;
   .mosaic-image {
     width: 50%;
