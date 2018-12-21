@@ -1,4 +1,4 @@
-$itemRadius: 20px;
+$itemRadius: 15px;
 
 .minimal-list {
   &-item {
@@ -31,9 +31,9 @@ $itemRadius: 20px;
       transform: scale(1, 1);
       background-image: linear-gradient(
         180deg,
-        rgba(0, 0, 0, 0.9) 20%,
-        rgba(0, 0, 0, 0.2) 60%,
-        rgba(0, 0, 0, 0.9) 100%
+        rgba(15, 15, 15, 0.9) 20%,
+        rgba(15, 15, 15, 0.2) 60%,
+        rgba(15, 15, 15, 0.9) 100%
       );
     }
     &-details {
@@ -50,6 +50,7 @@ $itemRadius: 20px;
     }
     .mosaic-image-container {
       border-radius: $itemRadius;
+      border: 5px solid transparent;
     }
   }
 }

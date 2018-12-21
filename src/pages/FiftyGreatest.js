@@ -4,12 +4,14 @@ import config from '../config';
 import TitleBar from '../components/TitleBar';
 import SelectedCartoons from '../components/cartoons/SelectedCartoons';
 
-const pageDescription = `List of animated shorts from the Golden Age period that were mentioned in the 1994 book "The 50 Greatest Cartoons: As Selected by 1,000 Animation Professionals" by Jerry Beck.`;
-
 const FiftyGreatest = () => (
   <div className="fifty-greatest-page">
-    <TitleBar title="The 50 Greatest Cartoons" description={pageDescription} />
-    <SelectedCartoons ids={config.fiftyGreatestIds} />
+    <TitleBar
+      className="md-col-6 sm-col-12"
+      title={config.fiftyGreatest.title}
+      description={config.fiftyGreatest.description}
+    />
+    <SelectedCartoons ids={config.fiftyGreatest.ids} />
   </div>
 );
 

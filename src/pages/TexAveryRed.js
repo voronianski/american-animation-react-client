@@ -4,12 +4,14 @@ import config from '../config';
 import TitleBar from '../components/TitleBar';
 import SelectedCartoons from '../components/cartoons/SelectedCartoons';
 
-const pageDescription = `List of seven animated shorts that were produced during the Golden Age period and feature popular Red character, nightclub singer and dancer created by Tex Avery in MGM studio.`;
-
 const FiftyGreatest = () => (
   <div className="fifty-greatest-page">
-    <TitleBar title="Tex Avery's Red" description={pageDescription} />
-    <SelectedCartoons ids={config.texAveryRedIds} />
+    <TitleBar
+      className="md-col-6 sm-col-12"
+      title={config.texAveryRed.title}
+      description={config.texAveryRed.description}
+    />
+    <SelectedCartoons ids={config.texAveryRed.ids} />
   </div>
 );
 

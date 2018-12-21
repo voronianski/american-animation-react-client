@@ -1,0 +1,17 @@
+.dashboard-content {
+  &-inner {
+  }
+  &-box {
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    &:hover {
+      opacity: 0.3;
+      transform: scale(0.92, 0.92);
+      transition-delay: 0.3s;
+    }
+    &-inner {
+      &:hover {
+        text-decoration: none;
+      }
+    }
+  }
+}

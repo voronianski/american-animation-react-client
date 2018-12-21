@@ -52,7 +52,7 @@ class CartoonsListItem extends Component {
           className="cartoons-list-item-inner block"
         >
           <div
-            className="cartoons-list-item-poster mb1"
+            className="cartoons-list-item-poster mb1 rounded"
             style={{ backgroundImage: `url(${this.getPosterLink()})` }}
           />
           <div className="cartoons-list-item-details">

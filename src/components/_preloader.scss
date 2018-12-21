@@ -1,0 +1,11 @@
+.preloader {
+  display: flex;
+  text-align: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  &-icon {
+    margin: auto;
+    opacity: 0.2;
+  }
+}

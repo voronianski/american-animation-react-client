@@ -1,7 +1,6 @@
 .mosaic-image-container {
   width: 100%;
   height: 100%;
-  border: 6px solid transparent;
   overflow: hidden;
   .mosaic-image {
     width: 50%;
@@ -9,9 +8,14 @@
     background-position: center;
     background-repeat: no-repeat;
     background-size: 130%;
+    opacity: 0;
+    transition: opacity 0.3s ease;
     &.single {
       width: 100%;
       height: 100%;
+    }
+    &.loaded {
+      opacity: 1;
     }
   }
 }
