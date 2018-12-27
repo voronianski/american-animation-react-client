@@ -21,7 +21,6 @@ export const CharacterDetailsQuery = gql`
       videos(orderBy: releasedIn_ASC) {
         id
         name
-        image
         releasedIn
         omdb
       }
@@ -52,8 +51,6 @@ const CharacterDetails = props => {
   const shareText = `Watch animated cartoons featuring ${
     Character.name
   } here - `;
-
-  console.log(Character);
 
   return (
     <div className="character-details">

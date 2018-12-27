@@ -10,11 +10,9 @@ export const AllCharactersQuery = gql`
     allCharacters(name: $name, orderBy: $orderBy) {
       id
       name
-      images
       createdIn
       videos {
         id
-        image
         omdb
       }
     }

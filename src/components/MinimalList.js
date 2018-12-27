@@ -26,10 +26,14 @@ const MinimalList = ({ data, source, renderYears }) => {
               {videosLength ? (
                 <div className="minimal-list-mosaic absolute top-0 left-0 right-0 bottom-0 z1">
                   <MosaicImage
-                    images={item.videos.map(video => ({
-                      id: video.id,
-                      src: video.image || video.omdb.Poster
-                    }))}
+                    images={item.videos
+                      .filter(video => {
+                        return video.omdb.Poster && video.omdb.Poster !== 'N/A';
+                      })
+                      .map(video => ({
+                        id: video.id,
+                        src: video.omdb.Poster
+                      }))}
                   />
                 </div>
               ) : null}

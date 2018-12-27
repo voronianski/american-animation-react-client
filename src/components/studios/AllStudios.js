@@ -14,7 +14,6 @@ export const AllStudiosQuery = gql`
       defunctIn
       videos {
         id
-        image
         omdb
       }
     }

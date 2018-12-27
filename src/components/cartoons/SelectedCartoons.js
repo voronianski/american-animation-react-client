@@ -11,7 +11,6 @@ export const SelectedCartoonsQuery = gql`
     allVideos(selectIds: $videoIds) {
       id
       name
-      image
       releasedIn
       omdb
     }

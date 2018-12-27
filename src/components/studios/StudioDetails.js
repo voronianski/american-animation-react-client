@@ -23,7 +23,6 @@ export const StudioDetailsQuery = gql`
       videos(orderBy: releasedIn_ASC) {
         id
         name
-        image
         releasedIn
         omdb
       }
@@ -54,8 +53,6 @@ const StudioDetails = props => {
   const shareText = `Watch animated cartoons produced by ${
     Studio.name
   } here - `;
-
-  console.log(Studio);
 
   return (
     <div className="studio-details">

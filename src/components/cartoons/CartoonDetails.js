@@ -18,7 +18,6 @@ export const CartoonDetailsQuery = gql`
       name
       directedBy
       releasedIn
-      image
       studio {
         id
         name
@@ -60,8 +59,6 @@ const CartoonDetails = props => {
     Video.releasedIn
   }) by ${Video.directedBy} here - `;
 
-  console.log(Video);
-
   return (
     <div className="cartoon-details">
       <h2 className="cartoon-details-title h1 mt0 mb2">
@@ -76,10 +73,7 @@ const CartoonDetails = props => {
           <div className="cartoon-details-sidebar">
             {Video.omdb.Poster ? (
               <div className="cartoon-details-poster">
-                <img
-                  src={Video.image || Video.omdb.Poster}
-                  alt="cartoon poster"
-                />
+                <img src={Video.omdb.Poster} alt="cartoon poster" />
               </div>
             ) : null}
 

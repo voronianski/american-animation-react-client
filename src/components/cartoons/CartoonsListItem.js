@@ -10,7 +10,8 @@ class CartoonsListItem extends Component {
     super();
 
     this.state = {
-      posterLoaded: false
+      posterLoaded: false,
+      hasPoster: false
     };
   }
 
@@ -21,7 +22,7 @@ class CartoonsListItem extends Component {
   getPosterLink() {
     const { cartoon } = this.props;
 
-    const link = cartoon.image || cartoon.omdb.Poster;
+    const link = cartoon.omdb.Poster;
 
     if (link === 'N/A') {
       return;
@@ -32,13 +33,12 @@ class CartoonsListItem extends Component {
 
   loadPoster(posterLink) {
     const img = new Image();
-    const done = () =>
-      setTimeout(() => {
-        this.setState({ posterLoaded: true });
-      }, 0);
+    const done = hasPoster => {
+      this.setState({ posterLoaded: true, hasPoster });
+    };
 
-    img.onload = () => done();
-    img.onerror = () => done();
+    img.onload = () => done(true);
+    img.onerror = () => done(false);
     img.src = this.getPosterLink();
   }
 
@@ -50,7 +50,6 @@ class CartoonsListItem extends Component {
         'poster-loaded': this.state.posterLoaded
       }
     );
-    const posterLink = this.getPosterLink();
 
     return (
       <div className={itemClassNames}>
@@ -60,7 +59,13 @@ class CartoonsListItem extends Component {
         >
           <div
             className="cartoons-list-item-poster mb1 rounded"
-            style={posterLink ? { backgroundImage: `url(${posterLink})` } : {}}
+            style={
+              this.state.hasPoster
+                ? {
+                    backgroundImage: `url(${this.getPosterLink()})`
+                  }
+                : {}
+            }
           />
           <div className="cartoons-list-item-details">
             <div className="cartoons-list-item-name">{cartoon.name}</div>

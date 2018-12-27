@@ -13,7 +13,6 @@ export const CartoonsBoxQuery = gql`
     allVideos(selectIds: $videoIds) {
       id
       name
-      image
       omdb
     }
   }
@@ -27,10 +26,14 @@ const CartoonsBox = ({ data: { loading, allVideos }, className }) => {
       {allVideos && allVideos.length ? (
         <MosaicImage
           className="rounded"
-          images={allVideos.map(video => ({
-            id: video.id,
-            src: video.image || video.omdb.Poster
-          }))}
+          images={allVideos
+            .filter(video => {
+              return video.omdb.Poster && video.omdb.Poster !== 'N/A';
+            })
+            .map(video => ({
+              id: video.id,
+              src: video.omdb.Poster
+            }))}
         />
       ) : null}
     </div>
