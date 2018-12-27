@@ -38,7 +38,7 @@ class MosaicImageItem extends Component {
     const { source, index, length } = this.props;
     const imageClassNames = classNames(
       'mosaic-image',
-      length > 4 ? indexClassMap[index] : 'single',
+      length >= 4 ? indexClassMap[index] : 'single',
       { loaded: this.state.loadedImage }
     );
 
